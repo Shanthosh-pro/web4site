@@ -1,152 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Unique Space | [Your Name]</title>
-    <style>
-        :root {
-            --primary: #2A5C82;  /* Trust-building blue */
-            --secondary: #FF6B35; /* Energizing orange */
-            --accent: #A8DADC;   /* Calming teal */
-            --background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui;
-        }
-
-        body {
-            background: var(--background);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .blob-bg {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: var(--primary);
-            border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
-            opacity: 0.1;
-            animation: morph 20s infinite linear;
-            z-index: -1;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem;
-            border-radius: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            max-width: 600px;
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .connect-btn {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 1.5rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .connect-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-        }
-
-        .message-box {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: var(--accent);
-            border-radius: 1rem;
-            display: none;
-        }
-
-        @keyframes morph {
-            0%, 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
-            33% { border-radius: 72% 28% 48% 48% / 28% 28% 72% 72%; }
-            66% { border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%; }
-        }
-
-        /* Dynamic color adjustments based on time */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background: linear-gradient(145deg, #212529 0%, #343a40 100%);
-            }
-            .card {
-                background: rgba(33, 37, 41, 0.95);
-                color: white;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Your Name] | Techivi Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3de0ff;
+      --accent: #0a192f;
+      --glass: rgba(10,25,47,0.68);
+      --glow: 0 0 16px #3de0ff88;
+      --radius: 2rem;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--accent);
+      color: #f7fafc;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .bg-techivi {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      background: repeating-linear-gradient(90deg, #23355422 0 1px, transparent 1px 40px),
+                  repeating-linear-gradient(180deg, #23355422 0 1px, transparent 1px 40px);
+      animation: gridmove 12s linear infinite;
+    }
+    @keyframes gridmove {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 40px 40px, 40px 40px; }
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    .card-glass {
+      background: var(--glass);
+      box-shadow: var(--glow);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(8px);
+      border: 1.5px solid #3de0ff33;
+      transition: box-shadow 0.3s;
+    }
+    .card-glass:hover {
+      box-shadow: 0 0 40px #3de0ff99;
+    }
+    .hero h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.8rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.7rem;
+      color: var(--primary);
+      text-shadow: 0 0 10px #3de0ff77;
+    }
+    .hero .subtitle {
+      color: #b2e9fd;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.2em 0.8em;
+      border-radius: 1em;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: none;
+    }
+    .nav-links a:hover {
+      background: #3de0ff22;
+      color: #fff;
+      box-shadow: var(--glow);
+    }
+    section {
+      max-width: 650px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--glass);
+      border-radius: var(--radius);
+      box-shadow: var(--glow);
+      backdrop-filter: blur(8px);
+      margin-bottom: 2rem;
+      border: 1px solid #3de0ff22;
+    }
+    h2 {
+      font-family: 'Orbitron', monospace;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+    }
+    .project-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .project-list li {
+      background: #13233a88;
+      margin-bottom: 1.2rem;
+      border-radius: 1rem;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 0 10px #3de0ff33;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-list li:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px #3de0ff55;
+    }
+    .glow-btn {
+      background: var(--primary);
+      color: #0a192f;
+      font-weight: 700;
+      border: none;
+      border-radius: 1em;
+      padding: 0.8em 2em;
+      font-size: 1.1em;
+      margin-top: 1.5em;
+      box-shadow: var(--glow);
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .glow-btn:hover {
+      background: #1ee2e2;
+      box-shadow: 0 0 40px #3de0ffbb;
+    }
+    .socials {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .socials a {
+      color: var(--primary);
+      font-size: 2rem;
+      transition: color 0.2s, text-shadow 0.2s;
+      text-decoration: none;
+    }
+    .socials a:hover {
+      color: #fff;
+      text-shadow: 0 0 12px #3de0ff;
+    }
+    @media (max-width: 700px) {
+      section, .card-glass { padding: 1.2rem; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+  <!-- Icons for social links (optional) -->
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-    <section class="hero">
-        <div class="blob-bg"></div>
-        <div class="card">
-            <h1>Hi, I'm <span style="color: var(--secondary)">[Your Name]</span></h1>
-            <p>Creative Problem Solver & Digital Innovator</p>
-            
-            <button class="connect-btn" onclick="showMessage()">Let's Connect</button>
-            <div class="message-box" id="messageBox"></div>
-
-            <div class="social-links" style="margin-top: 2rem;">
-                <!-- Add your social media links here -->
-            </div>
-        </div>
+  <div class="bg-techivi"></div>
+  <header class="hero">
+    <div class="card-glass">
+      <h1>[Your Name]</h1>
+      <div class="subtitle">Innovator • Coder • Creator</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="glow-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Let's Connect
+      </button>
+      <div class="socials">
+        <a href="https://github.com/yourusername" title="GitHub"><i data-feather="github"></i></a>
+        <a href="https://twitter.com/yourusername" title="Twitter"><i data-feather="twitter"></i></a>
+        <a href="mailto:your@email.com" title="Email"><i data-feather="mail"></i></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Hi! I'm <span style="color:var(--primary)">[Your Name]</span>. I love building creative digital solutions and exploring new technologies.<br>
+        My philosophy is simple: <b>Innovate, Code, Repeat.</b>
+      </p>
     </section>
-
-    <script>
-        const messages = [
-            "🌟 You're awesome! Thanks for reaching out!",
-            "🚀 Your message is on its way to my inbox!",
-            "💡 Great connections start with a hello!",
-            "🎉 Let's create something amazing together!",
-            "🤝 Collaboration begins with conversation!"
-        ];
-
-        function showMessage() {
-            const box = document.getElementById('messageBox');
-            box.style.display = 'block';
-            box.textContent = messages[Math.floor(Math.random() * messages.length)];
-            
-            setTimeout(() => {
-                box.style.display = 'none';
-            }, 3000);
-        }
-
-        // Animated blob background
-        document.addEventListener('DOMContentLoaded', () => {
-            const blob = document.querySelector('.blob-bg');
-            window.addEventListener('mousemove', (e) => {
-                blob.animate({
-                    left: ${e.clientX - 300}px,
-                    top: ${e.clientY - 300}px
-                }, { duration: 3000, fill: 'forwards' });
-            });
-        });
-    </script>
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="project-list">
+        <li>
+          <strong>Project One</strong><br>
+          <span style="color:#b2e9fd;">A unique app that...</span>
+        </li>
+        <li>
+          <strong>Project Two</strong><br>
+          <span style="color:#b2e9fd;">A modern website for...</span>
+        </li>
+        <!-- Add more projects here -->
+      </ul>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Want to collaborate or say hi? Drop me a message!</p>
+      <form action="mailto:your@email.com" method="POST" style="margin-top:1rem;">
+        <input type="text" name="name" placeholder="Your Name" required
+          style="margin-bottom:1em;width:100%;padding:0.8em;border-radius:0.7em;border:none;">
+        <input type="email" name="email" placeholder="Your Email" required
+          style="margin-bottom:1em;width:100%;padding:0.8em;border-radius:0.7em;border:none;">
+        <textarea name="message" placeholder="Your Message" required
+          style="margin-bottom:1em;width:100%;padding:0.8em;border-radius:0.7em;border:none;"></textarea>
+        <button class="glow-btn" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+  <script>
+    feather.replace();
+  </script>
 </body>
 </html>
