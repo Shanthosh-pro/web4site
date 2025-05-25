@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Unique Space | [Your Name]</title>
+    <style>
+        :root {
+            --primary: #2A5C82;  /* Trust-building blue */
+            --secondary: #FF6B35; /* Energizing orange */
+            --accent: #A8DADC;   /* Calming teal */
+            --background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui;
+        }
+
+        body {
+            background: var(--background);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .blob-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+            opacity: 0.1;
+            animation: morph 20s infinite linear;
+            z-index: -1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .connect-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .connect-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .message-box {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--accent);
+            border-radius: 1rem;
+            display: none;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%; }
+            33% { border-radius: 72% 28% 48% 48% / 28% 28% 72% 72%; }
+            66% { border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%; }
+        }
+
+        /* Dynamic color adjustments based on time */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: linear-gradient(145deg, #212529 0%, #343a40 100%);
+            }
+            .card {
+                background: rgba(33, 37, 41, 0.95);
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="blob-bg"></div>
+        <div class="card">
+            <h1>Hi, I'm <span style="color: var(--secondary)">[Your Name]</span></h1>
+            <p>Creative Problem Solver & Digital Innovator</p>
+            
+            <button class="connect-btn" onclick="showMessage()">Let's Connect</button>
+            <div class="message-box" id="messageBox"></div>
+
+            <div class="social-links" style="margin-top: 2rem;">
+                <!-- Add your social media links here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const messages = [
+            "🌟 You're awesome! Thanks for reaching out!",
+            "🚀 Your message is on its way to my inbox!",
+            "💡 Great connections start with a hello!",
+            "🎉 Let's create something amazing together!",
+            "🤝 Collaboration begins with conversation!"
+        ];
+
+        function showMessage() {
+            const box = document.getElementById('messageBox');
+            box.style.display = 'block';
+            box.textContent = messages[Math.floor(Math.random() * messages.length)];
+            
+            setTimeout(() => {
+                box.style.display = 'none';
+            }, 3000);
+        }
+
+        // Animated blob background
+        document.addEventListener('DOMContentLoaded', () => {
+            const blob = document.querySelector('.blob-bg');
+            window.addEventListener('mousemove', (e) => {
+                blob.animate({
+                    left: ${e.clientX - 300}px,
+                    top: ${e.clientY - 300}px
+                }, { duration: 3000, fill: 'forwards' });
+            });
+        });
+    </script>
+</body>
+</html>
