@@ -3,230 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Your Name] | Techivi Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Shanthosh | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #3de0ff;
-      --accent: #0a192f;
-      --glass: rgba(10,25,47,0.68);
-      --glow: 0 0 16px #3de0ff88;
-      --radius: 2rem;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      background: #fff;
+      color: #222;
       font-family: 'Inter', Arial, sans-serif;
-      background: var(--accent);
-      color: #f7fafc;
+      margin: 0;
+      padding: 0;
       min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
     }
-    .bg-techivi {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -2;
-      background: repeating-linear-gradient(90deg, #23355422 0 1px, transparent 1px 40px),
-                  repeating-linear-gradient(180deg, #23355422 0 1px, transparent 1px 40px);
-      animation: gridmove 12s linear infinite;
-    }
-    @keyframes gridmove {
-      0% { background-position: 0 0, 0 0; }
-      100% { background-position: 40px 40px, 40px 40px; }
-    }
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      flex-direction: column;
+    header {
+      background: #f7fafc;
+      padding: 2rem 0 1.5rem 0;
       text-align: center;
+      border-bottom: 1px solid #eee;
     }
-    .card-glass {
-      background: var(--glass);
-      box-shadow: var(--glow);
-      border-radius: var(--radius);
-      padding: 2.5rem 2rem;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(8px);
-      border: 1.5px solid #3de0ff33;
-      transition: box-shadow 0.3s;
+    header h1 {
+      margin: 0.2em 0;
+      color: #0099cc;
+      font-size: 2.5rem;
+      letter-spacing: 0.03em;
     }
-    .card-glass:hover {
-      box-shadow: 0 0 40px #3de0ff99;
+    nav {
+      margin-top: 1rem;
     }
-    .hero h1 {
-      font-family: 'Orbitron', monospace;
-      font-size: 2.8rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.7rem;
-      color: var(--primary);
-      text-shadow: 0 0 10px #3de0ff77;
-    }
-    .hero .subtitle {
-      color: #b2e9fd;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-      letter-spacing: 0.05em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .nav-links a {
-      color: var(--primary);
+    nav a {
+      margin: 0 1.5rem;
+      color: #222;
       text-decoration: none;
-      font-weight: 700;
-      padding: 0.2em 0.8em;
-      border-radius: 1em;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      box-shadow: none;
+      font-weight: bold;
+      transition: color 0.2s;
     }
-    .nav-links a:hover {
-      background: #3de0ff22;
-      color: #fff;
-      box-shadow: var(--glow);
+    nav a:hover {
+      color: #0099cc;
+    }
+    main {
+      max-width: 700px;
+      margin: 2.5rem auto;
+      padding: 2rem;
+      background: #f9f9f9;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 12px #ddd;
     }
     section {
-      max-width: 650px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: var(--glass);
-      border-radius: var(--radius);
-      box-shadow: var(--glow);
-      backdrop-filter: blur(8px);
-      margin-bottom: 2rem;
-      border: 1px solid #3de0ff22;
+      margin-bottom: 2.5rem;
     }
     h2 {
-      font-family: 'Orbitron', monospace;
-      color: var(--primary);
+      color: #0099cc;
       margin-bottom: 1rem;
       font-size: 2rem;
-      letter-spacing: 0.04em;
     }
-    .project-list {
+    ul.projects {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
     }
-    .project-list li {
-      background: #13233a88;
-      margin-bottom: 1.2rem;
-      border-radius: 1rem;
-      padding: 1.2rem 1rem;
-      box-shadow: 0 0 10px #3de0ff33;
-      transition: transform 0.2s, box-shadow 0.2s;
+    ul.projects li {
+      background: #e6f7ff;
+      margin-bottom: 1rem;
+      border-radius: 0.7rem;
+      padding: 1rem 1.2rem;
+      box-shadow: 0 1px 4px #d3eafd;
     }
-    .project-list li:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 30px #3de0ff55;
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.9em;
+      margin-bottom: 1em;
+      border-radius: 0.6em;
+      border: 1px solid #ccc;
+      font-size: 1em;
     }
-    .glow-btn {
-      background: var(--primary);
-      color: #0a192f;
-      font-weight: 700;
+    .contact-form button {
+      background: #0099cc;
+      color: #fff;
       border: none;
+      padding: 0.7em 2em;
       border-radius: 1em;
-      padding: 0.8em 2em;
       font-size: 1.1em;
-      margin-top: 1.5em;
-      box-shadow: var(--glow);
+      font-weight: bold;
       cursor: pointer;
-      transition: background 0.2s, box-shadow 0.2s;
+      transition: background 0.2s;
     }
-    .glow-btn:hover {
-      background: #1ee2e2;
-      box-shadow: 0 0 40px #3de0ffbb;
+    .contact-form button:hover {
+      background: #0077a3;
     }
     .socials {
-      margin-top: 1.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
+      margin-top: 2rem;
+      text-align: center;
     }
     .socials a {
-      color: var(--primary);
+      margin: 0 1rem;
+      color: #0099cc;
       font-size: 2rem;
-      transition: color 0.2s, text-shadow 0.2s;
       text-decoration: none;
+      transition: color 0.2s;
     }
     .socials a:hover {
-      color: #fff;
-      text-shadow: 0 0 12px #3de0ff;
+      color: #222;
     }
-    @media (max-width: 700px) {
-      section, .card-glass { padding: 1.2rem; }
-      .hero h1 { font-size: 2rem; }
+    @media (max-width: 800px) {
+      main { padding: 1rem; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.3rem; }
     }
   </style>
-  <!-- Icons for social links (optional) -->
-  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-  <div class="bg-techivi"></div>
-  <header class="hero">
-    <div class="card-glass">
-      <h1>[Your Name]</h1>
-      <div class="subtitle">Innovator • Coder • Creator</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button class="glow-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        Let's Connect
-      </button>
-      <div class="socials">
-        <a href="https://github.com/yourusername" title="GitHub"><i data-feather="github"></i></a>
-        <a href="https://twitter.com/yourusername" title="Twitter"><i data-feather="twitter"></i></a>
-        <a href="mailto:your@email.com" title="Email"><i data-feather="mail"></i></a>
-      </div>
-    </div>
+  <header>
+    <h1>Shanthosh</h1>
+    <div>Web Developer | Creator | Innovator</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
   <main>
     <section id="about">
       <h2>About</h2>
       <p>
-        Hi! I'm <span style="color:var(--primary)">[Your Name]</span>. I love building creative digital solutions and exploring new technologies.<br>
-        My philosophy is simple: <b>Innovate, Code, Repeat.</b>
+        Hi! I'm <strong>Shanthosh</strong>, a passionate web developer specializing in building modern and responsive websites.<br>
+        I love turning ideas into reality with creative solutions and clean code.
       </p>
     </section>
     <section id="projects">
       <h2>Projects</h2>
-      <ul class="project-list">
+      <ul class="projects">
         <li>
-          <strong>Project One</strong><br>
-          <span style="color:#b2e9fd;">A unique app that...</span>
+          <strong>Portfolio Website</strong><br>
+          My personal website built with HTML and CSS.
+          <br>
+          <a href="https://github.com/Shanthosh-pro/web4site" target="_blank">View on GitHub</a>
         </li>
         <li>
-          <strong>Project Two</strong><br>
-          <span style="color:#b2e9fd;">A modern website for...</span>
+          <strong>Weather App</strong><br>
+          A simple weather app using OpenWeatherMap API.
+          <br>
+          <a href="https://github.com/Shanthosh-pro/weather-app" target="_blank">View on GitHub</a>
         </li>
-        <!-- Add more projects here -->
+        <!-- Add more projects as needed -->
       </ul>
     </section>
     <section id="contact">
       <h2>Contact</h2>
-      <p>Want to collaborate or say hi? Drop me a message!</p>
-      <form action="mailto:your@email.com" method="POST" style="margin-top:1rem;">
-        <input type="text" name="name" placeholder="Your Name" required
-          style="margin-bottom:1em;width:100%;padding:0.8em;border-radius:0.7em;border:none;">
-        <input type="email" name="email" placeholder="Your Email" required
-          style="margin-bottom:1em;width:100%;padding:0.8em;border-radius:0.7em;border:none;">
-        <textarea name="message" placeholder="Your Message" required
-          style="margin-bottom:1em;width:100%;padding:0.8em;border-radius:0.7em;border:none;"></textarea>
-        <button class="glow-btn" type="submit">Send</button>
+      <form class="contact-form" action="mailto:your@email.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send</button>
       </form>
     </section>
   </main>
-  <script>
-    feather.replace();
-  </script>
+  <div class="socials">
+    <a href="https://github.com/Shanthosh-pro" title="GitHub" target="_blank">&#x1F5C3;</a>
+    <a href="https://twitter.com/yourusername" title="Twitter" target="_blank">&#x1F426;</a>
+    <a href="mailto:your@email.com" title="Email">&#x2709;</a>
+  </div>
 </body>
 </html>
